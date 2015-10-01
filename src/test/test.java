@@ -31,11 +31,6 @@ public class test {
         out = str.toString();
         return out;
     }
-    public final static class text{
-        public final static int stat =0;
-        public final int metod(final int in){
 
-        }
-    }
 
 }
