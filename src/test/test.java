@@ -15,7 +15,6 @@ public class test {
         test ts = new test();
         System.out.println(ts.StringRoles(roles, textLines));
 
-
     }
 
     public String StringRoles(String[] roles, String[] textLines){
@@ -31,6 +30,12 @@ public class test {
         }
         out = str.toString();
         return out;
+    }
+    public final static class text{
+        public final static int stat =0;
+        public final int metod(final int in){
+
+        }
     }
 
 }
