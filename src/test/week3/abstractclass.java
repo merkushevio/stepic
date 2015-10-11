@@ -40,3 +40,73 @@ public class abstractclass {
         return Label.OK;
     }
 }
+  enum Label {
+ SPAM, NEGATIVE_TEXT, TOO_LONG, OK
+}
+
+ interface TextAnalyzer {
+ Label processText(String text);
+}
+
+class SpamAnalyzer extends KeywordAnalyzer implements TextAnalyzer{
+ private String keywords;
+ public SpamAnalyzer(String keywords) {
+  this.keywords = keywords;
+ }
+ public Label checkLabels(TextAnalyzer[] analyzers, String text) {
+  for (int i = 0; i < analyzers.length; i++) {
+   analyzers[i].
+  }
+  return Label.OK;
+ }
+
+ @Override
+ public Label processText(String text) {
+  return null;
+ }
+
+ @Override
+ protected String[] getKeywords(TextAnalyzer[] analyzers) {
+  return (String[])analyzers;
+ }
+
+ @Override
+ protected Label getLabel() {
+  return null;
+ }
+}
+
+class NegativeTextAnalyzer extends KeywordAnalyzer implements TextAnalyzer{
+
+ public Label checkLabels(TextAnalyzer[] analyzers, String text) {
+  return Label.OK;
+ }
+
+ @Override
+ public Label processText(String text) {
+  return null;
+ }
+
+ @Override
+ protected String[] getKeywords() {
+  return new String[0];
+ }
+
+ @Override
+ protected Label getLabel() {
+  return null;
+ }
+}
+
+class TooLongTextAnalyzer implements TextAnalyzer{
+ private int maxLength;
+
+ public TooLongTextAnalyzer(int maxLength) {
+  this.maxLength = maxLength;
+ }
+
+ @Override
+ public Label processText(String text) {
+  return null;
+ }
+}
