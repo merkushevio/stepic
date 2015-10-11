@@ -15,7 +15,7 @@ public class AsciiCharSequence implements CharSequence{
 
     public AsciiCharSequence(byte[] string) {
         this.string = Arrays.copyOf(string, string.length);
-        this.string = StringCoding.
+        this.string = StringCoding(string, )
     }
 
     @Override
