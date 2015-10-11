@@ -47,6 +47,11 @@ public class abstractclass {
  interface TextAnalyzer {
  Label processText(String text);
 }
+abstract class KeywordAnalyzer {
+ protected abstract String[] getKeywords();
+ protected abstract Label getLabel();
+
+}
 
 class SpamAnalyzer extends KeywordAnalyzer implements TextAnalyzer{
  private String keywords;
