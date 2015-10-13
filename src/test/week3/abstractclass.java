@@ -36,7 +36,5 @@ package test.week3;
  */
 public class abstractclass {
 
-    public Label checkLabels(TextAnalyzer[] analyzers, String text) {
-        return Label.OK;
-    }
+
 }

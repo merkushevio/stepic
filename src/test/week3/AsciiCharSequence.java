@@ -4,8 +4,6 @@ package test.week3;
 import java.util.Arrays;
 import java.lang.*;
 
-import static java.lang.StringCoding.*;
-
 public class AsciiCharSequence implements CharSequence{
     private final byte string[];
 
@@ -15,7 +13,7 @@ public class AsciiCharSequence implements CharSequence{
 
     public AsciiCharSequence(byte[] string) {
         this.string = Arrays.copyOf(string, string.length);
-        this.string = StringCoding.
+
     }
 
     @Override
@@ -51,7 +49,7 @@ public class AsciiCharSequence implements CharSequence{
     public String toString() {
         char[] chars = new char[string.length];
         for (int i = 0; i < string.length; i++) {
-            chars[i] = string[i].;
+            chars[i] = string[i];
         }
         return chars.toString();
     }
