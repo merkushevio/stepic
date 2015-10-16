@@ -1,5 +1,7 @@
 package logger;
 
+import java.util.logging.*;
+
 /*
 * В этой задаче вам нужно реализовать метод, настраивающий параметры логирования. Конфигурирование в коде позволяет выполнить более тонкую и хитрую настройку, чем при помощи properties-файла.
 
@@ -14,6 +16,26 @@ package logger;
 (*) В реальных программах мы бы конечно печатали XML не в консоль, а в файл. Но проверяющая система не разрешает создавать файлы на диске, поэтому придется так.
 * */
 public class logger {
+    private static void configureLogging()
+    {
+        Logger ClassA = Logger.getLogger("org.stepic.java.logging.ClassA");
+        Logger ClassB = Logger.getLogger("org.stepic.java.logging.ClassB");
+        Formatter format = new XMLFormatter();
+        Handler handlerA = new ConsoleHandler();
+        Handler handlerB = new ConsoleHandler();
+        ClassA.addHandler(handlerA);
+        ClassB.addHandler(handlerB);
+        ClassA.setLevel(Level.ALL);
+        ClassB.setLevel(Level.WARNING);
+        ClassA.setUseParentHandlers(false);
+        ClassB.setUseParentHandlers(false);
+        handlerA.setLevel(Level.ALL);
+        handlerB.setLevel(Level.WARNING);
+        handlerA.setFormatter(format);
+        handlerB.setFormatter(format);
 
+
+
+    }
 
 }
