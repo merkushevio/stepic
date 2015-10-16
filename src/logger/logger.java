@@ -30,7 +30,7 @@ public class logger {
         ClassA.setUseParentHandlers(false);
         ClassB.setUseParentHandlers(false);
         handlerA.setLevel(Level.ALL);
-        handlerB.setLevel(Level.WARNING);
+        handlerB.setLevel(Level.ALL);
         handlerA.setFormatter(format);
         handlerB.setFormatter(format);
 
