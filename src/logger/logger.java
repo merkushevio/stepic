@@ -18,8 +18,8 @@ import java.util.logging.*;
 public class logger {
     private static void configureLogging()
     {
-        Logger ClassA = Logger.getLogger("org.stepic.java.logging.ClassA");
-        Logger ClassB = Logger.getLogger("org.stepic.java.logging.ClassB");
+        Logger ClassA = Logger.getLogger("org.stepic.java");
+        Logger ClassB = Logger.getLogger("org.stepic.java");
         Formatter format = new XMLFormatter();
         Handler handlerA = new ConsoleHandler();
         Handler handlerB = new ConsoleHandler();
