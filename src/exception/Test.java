@@ -28,6 +28,7 @@ public class Test {
             }
             else
                  res = throwable.getStackTrace()[2].getClassName() + "#" + throwable.getStackTrace()[2].getMethodName();
+                    throwable.printStackTrace();
            }
         return res;
     }
