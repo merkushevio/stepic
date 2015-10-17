@@ -3,7 +3,7 @@ package test.week4;
 /*
 Письмо, у которого есть текст, который можно получить с помощью метода `getMessage`
 */
-public static class MailMessage extends AbstractSendable {
+public class MailMessage extends AbstractSendable {
 
     private final String message;
 

@@ -1,12 +1,20 @@
 package test.week4;
 
 
+import java.lang.IllegalStateException;
+import java.lang.Math;
+import java.lang.String;
+import java.lang.System;
 import java.util.Arrays;
-import java.util.logging.*;
+import java.util.logging.ConsoleHandler;
+import java.util.logging.Handler;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.logging.XMLFormatter;
 
 public class logger {
     private static final Logger LOGGER = Logger.getLogger(logger.class.getName());
-    private static Logger loggerA = Logger.getLogger("test.week4.logger");
+    private static Logger loggerA = Logger.getLogger("test.week4.logger.logger");
 
 
     public static void main(String[] args) {

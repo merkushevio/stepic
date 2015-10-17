@@ -6,3 +6,15 @@ package test.week4;
 
 public class lasttask {
 }
+
+public static class UntrustworthyMailWorker implements MailService {
+    private MailService[] mailService = {};
+
+    @Override
+    public Sendable processMail(Sendable mail) {
+        return null;
+    }
+
+
+
+}

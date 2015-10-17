@@ -4,7 +4,7 @@ package test.week4;
 Абстрактный класс,который позволяет абстрагировать логику хранения
 источника и получателя письма в соответствующих полях класса.
 */
-public static abstract class AbstractSendable implements Sendable {
+public abstract class AbstractSendable implements Sendable {
 
     protected final String from;
     protected final String to;
