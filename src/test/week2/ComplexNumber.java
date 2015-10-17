@@ -1,5 +1,7 @@
-package test;
+package test.week2;
 
+
+import test.test;
 
 import java.util.Objects;
 
