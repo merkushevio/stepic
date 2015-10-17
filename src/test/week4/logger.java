@@ -7,7 +7,7 @@ import java.util.logging.*;
 public class logger {
     private static final Logger LOGGER = Logger.getLogger(logger.class.getName());
     private static Logger loggerA = Logger.getLogger("test.week4.logger");
-    private static Logger loggerB = Logger.getLogger("test.week4.logger");
+
 
     public static void main(String[] args) {
         LOGGER.log(Level.ALL, "Started with arguments: {0}", Arrays.toString(args));
@@ -23,7 +23,7 @@ public class logger {
 
     private static void randomlyFailingAlgorithm(){
         double randomNumber = Math.random();
-        System.out.println(loggerA.getLevel());
+
         loggerA.getHandlers();
         loggerA.getClass();
         if (randomNumber < 0.5) {
@@ -33,18 +33,21 @@ public class logger {
     }
 
     private static void configureLogging() {
+        Handler handlerA = new ConsoleHandler();
+        Logger loggerA = Logger.getLogger("org.stepic.java.logging.ClassA");
+        Logger loggerB = Logger.getLogger("org.stepic.java.logging.ClassB");
+        Logger loggerC = Logger.getLogger("org.stepic.java");
+        loggerC.addHandler(handlerA);
+
+
+        loggerC.setLevel(Level.ALL);
         loggerA.setLevel(Level.ALL);
         loggerB.setLevel(Level.WARNING);
-        loggerA.setUseParentHandlers(false);
-        loggerB.setUseParentHandlers(false);
-        Handler handlerA = new ConsoleHandler();
-        Handler handlerB = new ConsoleHandler();
+        loggerC.setUseParentHandlers(false);
         handlerA.setLevel(Level.ALL);
-        handlerB.setLevel(Level.WARNING);
+
         handlerA.setFormatter(new XMLFormatter());
-        handlerB.setFormatter(new XMLFormatter());
-        loggerA.addHandler(handlerA);
-        loggerB.addHandler(handlerB);
+
 
 
     }
