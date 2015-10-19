@@ -5,7 +5,11 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 public class Spy implements MailService{
-    private static final Logger LOGGER = Logger.getLogger("MailMessage");
+    private Logger LOGGER;
+
+    public Spy(Logger LOGGER) {
+        this.LOGGER = LOGGER;
+    }
 
     @Override
     public Sendable processMail(Sendable mail) {

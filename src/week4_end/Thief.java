@@ -17,10 +17,14 @@ public class Thief implements MailService{
 
     @Override
     public Sendable processMail(Sendable mail) {
+        String from = mail.getFrom();
+        String to = mail.getTo();
         if (mail instanceof MailPackage){
+            int price = ((MailPackage)mail).getContent().getPrice();
             if (mail.getPrice() >= cast){
                 StolenValue += mail.getPrice();
-                stolen = new MailPackage(mail.getFrom(),mail.getTo(),new Package("stones instead of {content}",0));
+                String content = "stones instead of {content}" + ((MailPackage)mail).getContent().getContent();
+                stolen = new MailPackage(from,to,new Package(content,0));
             }
             else this.stolen = (MailPackage) mail;
         }
