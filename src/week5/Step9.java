@@ -4,6 +4,7 @@ import java.io.ByteArrayInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
 
 public class Step9 {
     public static void main(String[] args) throws IOException {
@@ -15,30 +16,24 @@ public class Step9 {
     public static void exchange(InputStream input) throws IOException {
         OutputStream outputStream = System.out;
         int block;
-        int next = 0;
+        ArrayList<Byte> arrayList = new ArrayList<>();
         block = input.read();
         while (block >= 0) {
-            if (block == 13) {
-                if ((next = input.read()) == 10) {
-                    System.out.println(next);
-                    block = next;
-                    next = 0;
-                } else {
-                    System.out.println(block);
-                    block = next;
-
-                }
-            } else if (block != next) {
-                System.out.println(block);
-                block = input.read();
-            } else {
-                next = 0;
-                block = input.read();
-            }
-
+            arrayList.add((byte)block);
+            block = input.read();
         }
-
-
+        for (int i = 0; i < arrayList.size()-1; i++) {
+            if (arrayList.get(i) == 13) {
+                if (arrayList.get(i+1) == 10) {
+                    arrayList.remove(i);
+                }
+            }
+        }
+        for (Byte aByte : arrayList) {
+            outputStream.write((byte)aByte);
+        }
+        outputStream.flush();
     }
 }
+
 
