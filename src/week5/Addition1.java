@@ -1,6 +1,6 @@
 package week5;
 
-import java.io.Serializable;
+import java.io.*;
 import java.util.Objects;
 
 /*
@@ -52,6 +52,19 @@ public class Addition1 {
         }
     }
     public static Animal[] deserializeAnimalArray(byte[] data) {
-
+        Animal[] animals;
+        try (ObjectInputStream ois = new ObjectInputStream(new ByteArrayInputStream(data))) {
+            try {
+                animals = new Animal[ois.readInt()];
+                for (int i = 0; i < animals.length; i++) {
+                    animals[i] = (Animal) ois.readObject();
+                }
+            } catch (Exception e) {
+                throw new IllegalArgumentException(e);
+            }
+        } catch (IOException e) {
+            throw new IllegalArgumentException(e);
+        }
+        return animals;
     }
 }
