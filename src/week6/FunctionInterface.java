@@ -19,6 +19,7 @@ Function<String, Integer> safeStringLength = ternaryOperator(condition, ifTrue, 
 *
 * */
 
+
 import java.util.Objects;
 import java.util.function.Function;
 import java.util.function.Predicate;
@@ -31,19 +32,26 @@ public class FunctionInterface {
         Function<Object, Integer> ifTrue = obj -> 0;
         Function<CharSequence, Integer> ifFalse = CharSequence::length;
         Function<String, Integer> safeStringLength = ternaryOperator(condition, ifTrue, ifFalse);
+
+
     }
 
 
 
     public static <T, U> Function<T, U> ternaryOperator(
-            Predicate < ? super T > condition,
+            Predicate < ? super T > condition ,
             Function < ? super T, ? extends U> ifTrue,
             Function<? super T, ? extends U> ifFalse) {
-
+        if ()
 
         return null;
     }
+    public static Predicate< ? super T > condition() {
+        return Objects::isNull;
+    }
 
-
+    public static Function<? super T, ? extends U> ifTrue() {
+        return
+    }
 
 }
