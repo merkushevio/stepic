@@ -24,6 +24,8 @@ boolean mustAlsoBeTrue = pair.hashCode() == pair2.hashCode(); // true!
 *
 * */
 
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Objects;
 
 public class Generics {
@@ -35,6 +37,9 @@ public class Generics {
         Pair<Integer, String> pair2 = Pair.of(1, "hello");
         boolean mustBeTrue = pair.equals(pair2); // true!
         boolean mustAlsoBeTrue = pair.hashCode() == pair2.hashCode(); // true!
+        Collection<String> strings = new ArrayList<>();
+        Object object = new Object();
+
     }
 
     static class Pair<T extends Object, S extends Object> {
