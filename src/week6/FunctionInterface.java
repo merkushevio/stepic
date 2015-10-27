@@ -43,6 +43,6 @@ public class FunctionInterface {
             Function < ? super T, ? extends U> ifTrue,
             Function<? super T, ? extends U> ifFalse) {
 
-        return (t, u) -> condition.test(t) ? ifTrue.compose(t, u): ifFalse.compose(t,u);
+        return (t, u) -> condition.test(t) ? ifTrue.apply(t): ifFalse.apply(t);
     }
 }
