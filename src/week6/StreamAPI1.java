@@ -20,19 +20,16 @@ pseudoRandomStream(13) должен вернуть стрим, состоящи�
 
 
 import java.util.stream.IntStream;
+import java.util.stream.Stream;
 
 public class StreamAPI1 {
 
-
-
     public static IntStream pseudoRandomStream(int seed) {
-        if (seed >= 0) {
-
-
-
-
-
+        int s = seed;
+        while (true) {
+            Stream.of(s = () - 1)
         }
+
 
 
         return null;

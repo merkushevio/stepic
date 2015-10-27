@@ -38,20 +38,11 @@ public class FunctionInterface {
 
 
 
-    public static <T, U> Function<T, U> ternaryOperator(
-            Predicate < ? super T > condition ,
+    public static <T, U> Function<T, U> ternaryOperator (
+            Predicate < ? super T > condition,
             Function < ? super T, ? extends U> ifTrue,
             Function<? super T, ? extends U> ifFalse) {
-        if ()
 
-        return null;
+        return (t, u) -> condition.test(t) ? ifTrue.compose(t, u): ifFalse.compose(t,u);
     }
-    public static Predicate< ? super T > condition() {
-        return Objects::isNull;
-    }
-
-    public static Function<? super T, ? extends U> ifTrue() {
-        return
-    }
-
 }
