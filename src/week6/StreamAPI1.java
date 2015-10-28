@@ -6,7 +6,7 @@ package week6;
 
 Берется какое-то начальное неотрицательное число (оно будет передаваться в ваш метод проверяющей системой).
 Первый элемент последовательности устанавливается равным этому числу.
-Следующие элементы вычисляются по рекуррентной формуле Rn+1=mid(R2n), где mid — это функция, выделяющая второй,
+Следующие элементы вычисляются по рекуррентной формуле R от n+1 = mid(R от n в квадрате), где mid — это функция, выделяющая второй,
 третий и четвертый разряд переданного числа. Например, mid(123456)=345.
 Алгоритм, конечно, дурацкий и не выдерживающий никакой критики, но для практики работы со стримами сойдет :)
 
@@ -19,20 +19,45 @@ pseudoRandomStream(13) должен вернуть стрим, состоящи�
 
 
 
+import java.util.function.IntSupplier;
 import java.util.stream.IntStream;
-import java.util.stream.Stream;
+
 
 public class StreamAPI1 {
 
+    public static void main(String[] args) {
+        IntStream(13)
+    }
+
     public static IntStream pseudoRandomStream(int seed) {
-        int s = seed;
-        while (true) {
-            Stream.of(s = () - 1)
-        }
+        IntStream.generate(new GenerateInt())
+                .limit(8)
+                .forEach(System.out::print);
 
 
 
         return null;
+    }
+    private static class GenerateInt implements IntSupplier {
+
+        private Integer prev;
+        private Integer next;
+
+
+        @Override
+        public int getAsInt() {
+            Integer current = next;
+            next = mid(current * current);
+            prev = current;
+            return current;
+        }
+    }
+    private static Integer mid(Integer in){
+        String str = in.toString();
+        char[] chars = str.toCharArray();
+        str = "" + chars[1]+ chars[2] + chars[3];
+        Integer out = Integer.parseInt(str);
+        return out;
     }
 
 }
