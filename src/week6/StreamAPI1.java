@@ -18,7 +18,6 @@ pseudoRandomStream(13) должен вернуть стрим, состоящи�
 * */
 
 
-
 import java.util.function.IntSupplier;
 import java.util.stream.IntStream;
 
@@ -26,38 +25,52 @@ import java.util.stream.IntStream;
 public class StreamAPI1 {
 
     public static void main(String[] args) {
-        IntStream(13)
+        pseudoRandomStream(13);
     }
 
     public static IntStream pseudoRandomStream(int seed) {
-        IntStream.generate(new GenerateInt())
-                .limit(8)
+        IntStream.generate(new GenerateInt(seed))
+                .limit(9)
                 .forEach(System.out::print);
-
 
 
         return null;
     }
+
     private static class GenerateInt implements IntSupplier {
 
-        private Integer prev;
-        private Integer next;
 
+        private int prev;
+        private int next;
+
+        public GenerateInt(int input) {
+            next = input;
+        }
 
         @Override
         public int getAsInt() {
-            Integer current = next;
+            int current = next;
             next = mid(current * current);
             prev = current;
             return current;
         }
     }
-    private static Integer mid(Integer in){
-        String str = in.toString();
-        char[] chars = str.toCharArray();
-        str = "" + chars[1]+ chars[2] + chars[3];
-        Integer out = Integer.parseInt(str);
-        return out;
+
+    private static int mid(int in) {
+        int out = 0;
+        String s = String.valueOf(in);
+        String s1 = "";
+        if (s.length() != 0) {
+            for (int i = 0; i < s.length() - 1; i++) {
+                if (i < 5){
+                    s1 += s.charAt(i);
+
+            }
+        }
     }
+
+    out=Integer.parseInt(s1);
+    return out;
+}
 
 }
