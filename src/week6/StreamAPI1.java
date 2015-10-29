@@ -32,15 +32,11 @@ public class StreamAPI1 {
         IntStream.generate(new GenerateInt(seed))
                 .limit(9)
                 .forEach(System.out::print);
-
-
         return null;
     }
 
     private static class GenerateInt implements IntSupplier {
 
-
-        private int prev;
         private int next;
 
         public GenerateInt(int input) {
@@ -51,26 +47,16 @@ public class StreamAPI1 {
         public int getAsInt() {
             int current = next;
             next = mid(current * current);
-            prev = current;
             return current;
         }
     }
 
     private static int mid(int in) {
-        int out = 0;
-        String s = String.valueOf(in);
-        String s1 = "";
-        if (s.length() != 0) {
-            for (int i = 0; i < s.length() - 1; i++) {
-                if (i < 5){
-                    s1 += s.charAt(i);
-
-            }
+        String str = String.valueOf(in);
+        for (int i = 0; i < ; i++) {
+            
         }
-    }
 
-    out=Integer.parseInt(s1);
-    return out;
-}
+    }
 
 }
