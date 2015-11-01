@@ -60,12 +60,10 @@ public class Step13 {
             HashMap<String, Integer> map = new HashMap<>();
             Stream<String> stringStream = str.stream();
             Pattern pattern = Pattern.compile(" ");
+            int count = 1;
             stringStream
-                .map(s -> s.split(" "))
-                .peek(System.out::println)
-                .map(strings ->strings[0])
-                .peek(System.out::println)
-                .count();
+                        .peek(System.out::println)
+                        .count();
         }catch (Exception e){
             e.printStackTrace();
         }
