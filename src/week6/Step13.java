@@ -7,6 +7,7 @@ import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -60,14 +61,19 @@ public class Step13 {
             ArrayList<String> str = new ArrayList<>();
             str.add("Мама мыла-мыла-мыла раму!");
             HashMap<String, Integer> map = new HashMap<>();
-            String[] mas = null;
             Stream<String> stringStream = str.stream();
             Pattern pattern = Pattern.compile(" ");
-            int count = 1;
+            int[] count = {1};
             stringStream
-                .peek(System.out::println)
-                .map(s -> s.split(" "))
+                .map(s3 -> s3.replaceAll("-"," "))
+                .flatMap(s -> Stream.of(s.split(" ")))
+                .map(s1 -> s1.toLowerCase())
+                .map(s4 -> map.containsKey(s4)? map.replace(s4,count[0]++): map.put(s4, count[0]))
                 .forEach(System.out::println);
+
+            for (Map.Entry<String, Integer> entry : map.entrySet()) {
+                System.out.println(entry.getKey() + " " + entry.getValue());
+            }
         }catch (Exception e){
             e.printStackTrace();
         }
