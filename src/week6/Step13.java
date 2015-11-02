@@ -3,8 +3,10 @@ package week6;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
+import java.lang.reflect.Array;
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -58,12 +60,14 @@ public class Step13 {
             ArrayList<String> str = new ArrayList<>();
             str.add("Мама мыла-мыла-мыла раму!");
             HashMap<String, Integer> map = new HashMap<>();
+            String[] mas = null;
             Stream<String> stringStream = str.stream();
             Pattern pattern = Pattern.compile(" ");
             int count = 1;
             stringStream
-                        .peek(System.out::println)
-                        .count();
+                .peek(System.out::println)
+                .map(s -> s.split(" "))
+                .forEach(System.out::println);
         }catch (Exception e){
             e.printStackTrace();
         }
