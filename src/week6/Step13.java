@@ -4,10 +4,7 @@ import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
@@ -66,9 +63,10 @@ public class Step13 {
             int[] count = {1};
             stringStream
                 .map(s3 -> s3.replaceAll("-"," "))
+                .map(s2 -> s2.replaceAll("!",""))
                 .flatMap(s -> Stream.of(s.split(" ")))
                 .map(s1 -> s1.toLowerCase())
-                .map(s4 -> map.containsKey(s4)? map.replace(s4,count[0]++): map.put(s4, count[0]))
+                .map(s4 -> map.containsKey(s4)? map.replace(s4,map.get(s4).intValue()+1): map.put(s4, count[0]))
                 .forEach(System.out::println);
 
             for (Map.Entry<String, Integer> entry : map.entrySet()) {
