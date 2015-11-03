@@ -5,9 +5,11 @@ import java.io.InputStreamReader;
 import java.io.UnsupportedEncodingException;
 import java.lang.reflect.Array;
 import java.util.*;
+import java.util.function.Function;
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
 
 /*
 * Напишите программу, читающую из System.in текст в кодировке UTF-8, подсчитывающую в нем частоту появления слов,
@@ -57,21 +59,21 @@ public class Step13 {
             //Stream<String> stream = new BufferedReader(read).lines();
             ArrayList<String> str = new ArrayList<>();
             str.add("Мама мыла-мыла-мыла раму!");
-            HashMap<String, Integer> map = new HashMap<>();
+            TreeMap<String, Integer> map = new TreeMap<>();
             Stream<String> stringStream = str.stream();
-            Pattern pattern = Pattern.compile(" ");
             int[] count = {1};
             stringStream
-                .map(s3 -> s3.replaceAll("-"," "))
-                .map(s2 -> s2.replaceAll("!",""))
-                .flatMap(s -> Stream.of(s.split(" ")))
-                .map(s1 -> s1.toLowerCase())
-                .map(s4 -> map.containsKey(s4)? map.replace(s4,map.get(s4).intValue()+1): map.put(s4, count[0]))
-                .forEach(System.out::println);
-
-            for (Map.Entry<String, Integer> entry : map.entrySet()) {
-                System.out.println(entry.getKey() + " " + entry.getValue());
-            }
+                    .flatMap(s -> Stream.of(s.split("\\s|-")))
+                    .map(s1 -> s1.toLowerCase())
+                    .map(s2 -> s2.replaceAll("[!?:;,.]", ""))
+                    .sorted()
+                    .map(s4 -> map.containsKey(s4) ? map.replace(s4, map.get(s4) + 1) : map.put(s4, count[0]))
+                    .count();
+            map.entrySet().stream()
+                    .sorted(Map.Entry.comparingByValue())
+                    .flatMap(stringIntegerEntry -> )
+                    .limit(10)
+                    .forEach(System.out::println);
         }catch (Exception e){
             e.printStackTrace();
         }
