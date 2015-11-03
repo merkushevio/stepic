@@ -62,6 +62,7 @@ public class Step13 {
             TreeMap<String, Integer> map = new TreeMap<>();
             Stream<String> stringStream = str.stream();
             int[] count = {1};
+            List<String> arrayList = new ArrayList<>();
             stringStream
                     .flatMap(s -> Stream.of(s.split("\\s|-")))
                     .map(s1 -> s1.toLowerCase())
@@ -69,10 +70,14 @@ public class Step13 {
                     .sorted()
                     .map(s4 -> map.containsKey(s4) ? map.replace(s4, map.get(s4) + 1) : map.put(s4, count[0]))
                     .count();
-            map.entrySet().stream()
+            arrayList = map.entrySet().stream()
                     .sorted(Map.Entry.comparingByValue())
+                    .map(stringIntegerEntry -> stringIntegerEntry.getKey())
                     .limit(10)
-                    .forEach(System.out::println);
+                    .collect(Collectors.toList());
+            for (int i = arrayList.size() - 1; i >= 0 ; i--) {
+                System.out.println(arrayList.get(i));
+            }
         }catch (Exception e){
             e.printStackTrace();
         }
