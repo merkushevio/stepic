@@ -71,7 +71,6 @@ public class Step13 {
                     .count();
             map.entrySet().stream()
                     .sorted(Map.Entry.comparingByValue())
-                    .flatMap(stringIntegerEntry -> )
                     .limit(10)
                     .forEach(System.out::println);
         }catch (Exception e){
