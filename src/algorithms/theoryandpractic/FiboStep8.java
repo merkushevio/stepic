@@ -7,23 +7,23 @@ package algorithms.theoryandpractic;
     Sample Output:
     335
 *
+* Решение на базе матриц, или другой алгоритм решения О(logN)
+*
 * */
 
 
+import java.math.BigInteger;
 import java.util.Scanner;
 
 public class FiboStep8 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        int n = scanner.nextInt();
-        long m = scanner.nextLong();
-        long[] fibo = new long[n+1];
-        fibo[0] = 0;
-        fibo[1] = 1;
-        for (int i = 2; i <= n; i++) {
-            fibo[i] = (fibo[i - 1] + fibo[i - 2]);
-        }
-        System.out.println(fibo[n]%m);
+        BigInteger n = scanner.nextBigInteger();
+        int m = scanner.nextInt();
+        BigInteger[] fibo = new BigInteger[];
+        fibo[0] = BigInteger.ZERO;
+        fibo[1] = BigInteger.ONE;
+
     }
 
 }
