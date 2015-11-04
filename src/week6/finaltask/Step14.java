@@ -143,7 +143,7 @@ public static class Step14 {
 
     assert mailBox.get("Christopher Nolan").equals(Arrays.asList("Брат, почему все так хвалят только тебя, " + "когда практически все сценарии написал я. Так не честно!", "Я так и не понял Интерстеллар.")): "wrong mailService mailbox content (2)";
 
-    assert mailBox.get(randomTo).equals(Collections.<String>emptyList()): "wrong mailService mailbox content (3)";
+    assert mailBox.get(randomTo).equals(Collections.<String>emptyList()): "wrong mailService mailbox contqent (3)";
 
 
     // Создание списка из трех зарплат.

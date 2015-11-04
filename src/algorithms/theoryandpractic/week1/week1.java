@@ -1,4 +1,4 @@
-package algorithms.theoryandpractic;
+package algorithms.theoryandpractic.week1;
 
 import java.util.Scanner;
 
