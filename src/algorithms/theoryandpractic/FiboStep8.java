@@ -20,7 +20,7 @@ public class FiboStep8 {
         Scanner scanner = new Scanner(System.in);
         BigInteger n = scanner.nextBigInteger();
         int m = scanner.nextInt();
-        BigInteger[] fibo = new BigInteger[];
+        BigInteger[] fibo = new BigInteger[n.intValue()];
         fibo[0] = BigInteger.ZERO;
         fibo[1] = BigInteger.ONE;
 

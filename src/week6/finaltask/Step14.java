@@ -169,9 +169,8 @@ public static class Step14 {
 public static class MailMessage {
     private String from;
     private String to;
-
-
     private String content;
+
     public MailMessage(String from, String to, String content) {
         this.from = from;
         this.to = to;
@@ -184,7 +183,7 @@ public static class MailMessage {
 
     public String getTo() {
         return to;
-    }Map<String, List<String>>
+    }
 
     public String getFrom() {
         return from;
@@ -198,11 +197,12 @@ public static class Salary {
     private String from;
     private String to;
     private int salary;
-
+    private Map<String, Integer> map = new HashMap<>();
     public Salary(String from, String to, int salary) {
         this.from = from;
         this.to = to;
         this.salary = salary;
+        map.put(to, salary);
     }
 
     public String getTo() {
@@ -212,10 +212,26 @@ public static class Salary {
 
 }
 
-public static class MailService<E> {
+public static class MailService {
+    private List<String> list = new ArrayList<>();
+    private static Map<String, List<String>> map = new HashMap<>();
+
+    public MailService(MailMessage mailMessage) {
+        if (map.containsKey(mailMessage.getTo())) {
+            list.add(mailMessage.getContent());
+        }
+        else {
+            list.add(mailMessage.getContent());
+            map.put(mailMessage.getTo(), list);
+        }
+    }
+
+    public MailService() {
+    }
+
     public static Map<String, List<String>> getMailBox(){
 
-        return null;
+        return map;
     }
 
     public static get(String from) {
