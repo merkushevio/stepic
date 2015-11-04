@@ -1,4 +1,4 @@
-package algorithms.theoryandpractic.week1;
+package algorithms.week1.fibo;
 
 /*
 * Дано целое число 1≤n≤40, необходимо вычислить n-е число Фибоначчи

@@ -1,4 +1,4 @@
-package algorithms.theoryandpractic.week1;
+package algorithms.week1.fibo;
 
 /*
     Даны целые числа 1≤n≤1018 и 2≤m≤105, необходимо найти остаток от деления n-го числа Фибоначчи на m.

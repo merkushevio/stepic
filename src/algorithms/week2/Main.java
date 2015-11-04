@@ -1,4 +1,4 @@
-package algorithms.theoryandpractic.week2;
+package algorithms.week2;
 
 /**
  * Created by igor on 04.11.15.

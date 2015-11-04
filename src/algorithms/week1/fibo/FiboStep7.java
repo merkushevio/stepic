@@ -1,4 +1,4 @@
-package algorithms.theoryandpractic.week1;
+package algorithms.week1.fibo;
 
 
 import java.util.Scanner;
