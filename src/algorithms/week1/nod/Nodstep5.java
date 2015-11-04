@@ -1,5 +1,19 @@
 package algorithms.week1.nod;
 
+/** По данным двум числам 1≤a,b≤2⋅109 найдите их наибольший общий делитель.
+
+    Sample Input 1:
+    18 35
+    Sample Output 1:
+    1
+
+    Sample Input 2:
+    14159572 63967072
+    Sample Output 2:
+    4
+**/
+
+
 import java.util.Scanner;
 
 public class Nodstep5 {
@@ -26,4 +40,5 @@ public class Nodstep5 {
         }
         return 0;
     }
+
 }
