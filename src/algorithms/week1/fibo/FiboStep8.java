@@ -18,12 +18,16 @@ import java.util.Scanner;
 public class FiboStep8 {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
-        BigInteger n = scanner.nextBigInteger();
-        int m = scanner.nextInt();
-        BigInteger[] fibo = new BigInteger[n.intValue()];
-        fibo[0] = BigInteger.ZERO;
-        fibo[1] = BigInteger.ONE;
+        long n = scanner.nextLong();
+        //int m = scanner.nextInt();
+        int[][] mas = {{0, 1},{1, 1}};
+        for (int i = 0; i < n/2; i++) {
+            if (i % 1 != 1) {
 
+            }
+        }
+        System.out.println();
     }
+
 
 }
